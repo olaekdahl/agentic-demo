@@ -1,16 +1,17 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import { vi } from 'vitest';
 
 // Mock the stores to avoid axios import issues in tests
-jest.mock('./store/authStore', () => ({
+vi.mock('./store/authStore', () => ({
   useAuthStore: () => ({
     isAuthenticated: false,
-    checkAuth: jest.fn(),
+    checkAuth: vi.fn(),
     isLoading: false,
   }),
 }));
 
-jest.mock('./store/weatherStore', () => ({
+vi.mock('./store/weatherStore', () => ({
   useWeatherStore: () => ({
     currentWeather: null,
     forecast: null,
