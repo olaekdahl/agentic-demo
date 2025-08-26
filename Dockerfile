@@ -30,11 +30,11 @@ WORKDIR /app
 COPY --from=backend-setup --chown=weather:nodejs /app/backend ./backend
 
 # Copy built frontend
-COPY --from=frontend-build --chown=weather:nodejs /app/frontend/build ./frontend/build
+COPY --from=frontend-build --chown=weather:nodejs /app/frontend/dist ./frontend/dist
 
 # Create static file serving setup
 RUN mkdir -p ./backend/public && \
-    cp -r ./frontend/build/* ./backend/public/ && \
+    cp -r ./frontend/dist/* ./backend/public/ && \
     chown -R weather:nodejs ./backend/public
 
 # Expose port
