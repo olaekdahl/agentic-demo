@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes } = require('sequelize');
+const { Sequelize } = require('sequelize');
 const userModel = require('../models/user');
 
 // Create an in-memory SQLite database for testing
