@@ -15,7 +15,7 @@ function App() {
     };
 
     initializeAuth();
-  }, [checkAuth]);
+  }, []); // Remove checkAuth dependency to prevent re-runs
 
   const handleAuthSuccess = () => {
     // Authentication successful, the store will handle state update

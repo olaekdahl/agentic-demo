@@ -26,10 +26,8 @@ api.interceptors.response.use(
     return response;
   },
   (error) => {
-    if (error.response?.status === 401) {
-      // Handle unauthorized access - user might need to log in again
-      window.location.href = '/login';
-    }
+    // Let the calling code handle 401 errors - don't redirect automatically
+    // The auth store will handle clearing the auth state if needed
     return Promise.reject(error);
   }
 );
